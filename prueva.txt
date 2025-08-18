@@ -4,7 +4,8 @@ llll
 
 Esto en una prueba de funcionamiento xdxdxd
 print("hola sirpa")
-ya se puede modificar jairo tiene un lagartote :3
+ya se puede modificar jairo tiene un lagartote :3\
+hola sirpa
 
 Hola Mundo
 
