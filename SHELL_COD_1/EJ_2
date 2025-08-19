@@ -1,0 +1,21 @@
+2. crear un archivo de color y moverlo a la carpeta de color 
+#!/bin/bash
+
+# Crear la carpeta 'color' si no existe
+mkdir -p color
+
+# Preguntar por el primer color
+read -p "Escribe tu primer color favorito: " color1
+
+# Crear el archivo con el primer color
+echo "$color1" > color/color
+
+# Preguntar por el segundo color
+read -p "Escribe tu segundo color favorito: " color2
+
+# Agregar el segundo color al archivo
+echo "$color2" >> color/color
+
+# Mostrar el contenido del archivo
+echo -e "\nContenido del archivo 'color/color':"
+cat color/color

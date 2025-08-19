@@ -1,0 +1,8 @@
+1. Para crear los directorio 
+
+#!/bin/bash
+
+# Crear directorios para sabores de helado 2023
+mkdir -p ice_cream_2023/{water_flavors/{Cinnabon,apple,pineaple},milk_flavor/{chocolate,cappuccino}}
+
+echo "Directorios creados con éxito."

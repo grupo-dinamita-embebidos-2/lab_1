@@ -1,0 +1,9 @@
+3. name and last name
+
+gedit name.txt
+
+mkdir -p "student registry"
+
+cp name.txt "student registry/"
+
+gedit "student registry/name.txt"
