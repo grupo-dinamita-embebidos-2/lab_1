@@ -1,0 +1,39 @@
+EJERCICIO 1
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Nombre del grupo
+GROUP="distribution"
+
+# Crear grupo Distribution si no existe
+if ! getent group "$GROUP" > /dev/null 2>&1; then
+    echo "creando grupo $GROUP"
+    sudo groupadd "$GROUP"
+else
+    echo "el grupo $GROUP ya existe"
+fi
+
+# Crear usuarios
+for USER in company engineer assistant; do
+    if ! id "$USER" > /dev/null 2>&1; then
+        echo "creando usuario $USER"
+        sudo adduser --gecos "" "$USER"   # pedirá contraseña
+    else
+        echo "el usuario $USER ya existe"
+    fi
+    
+    echo "anadiendo $USER al grupo $GROUP"
+    sudo usermod -aG "$GROUP" "$USER"
+done
+
+# Dar privilegios de superusuario a company
+echo "dando privilegios sudo a company"
+sudo usermod -aG sudo company
+
+# Comprobación
+echo "verificacion:"
+getent group "$GROUP"
+id company
+id engineer
+id assistant

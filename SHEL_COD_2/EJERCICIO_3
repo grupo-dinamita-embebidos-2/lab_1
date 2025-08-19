@@ -1,0 +1,26 @@
+#!/bin/bash
+# Script para modificar el sistema de la empresa enlatadora
+
+# Crear el usuario Supervisor si no existe
+if ! id "Supervisor" &>/dev/null; then
+    sudo useradd -m -s /bin/bash Supervisor
+    echo "Usuario 'Supervisor' creado."
+else
+    echo "Usuario 'Supervisor' ya existe."
+fi
+
+# Añadir Supervisor al grupo Distribution
+sudo usermod -aG Distribution Supervisor
+echo "Usuario 'Supervisor' añadido al grupo 'Distribution'."
+
+# Cambiar el propietario de la carpeta 'Tareas diseñadas'
+sudo chown -R Supervisor:Distribution ~/Escritorio/"Tareas diseñadas"
+echo "Propietario de 'Tareas diseñadas' cambiado a 'Supervisor'."
+
+# Modificar permisos para que el grupo Distribution tenga lectura, escritura y ejecución
+sudo chmod -R 770 ~/Escritorio/"Tareas diseñadas"
+echo "Permisos modificados: Supervisor y grupo 'Distribution' tienen RWX, otros no tienen acceso."
+
+# Confirmacion final
+echo "Cambios realizados con éxito."
+ls -ld ~/Escritorio/"Tareas diseñadas"

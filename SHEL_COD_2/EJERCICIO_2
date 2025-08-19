@@ -1,0 +1,55 @@
+EJERCICIO 2
+
+#!/bin/bash
+
+# Ir al Escritorio
+cd ~/Escritorio
+
+# 1. Crear la estructura principal de carpetas de una sola vez usando {}
+mkdir -p "Tareas diseñadas"/{Mantenimiento,"Línea de producción",Reparaciones,Costos}
+
+# 2. Entrar en la carpeta principal
+cd "Tareas diseñadas"
+
+# 3. Crear el archivo 'Productos' en la carpeta principal
+cat > Productos.txt << EOF
+Atún enaltado = Van Camps
+Maíz enlatado = Norte
+Duraznos en alnibar = Pura Vida
+EOF
+
+# Definir los contenidos para cada archivo
+contenido_mantenimiento="Horario para el equipo de Mantenimiento:
+- Días: Viernes
+- Turno: 8:00 - 17:00
+- Responsable: Ignacio Pomier"
+
+contenido_produccion="Horario para el equipo de Producción:
+- Días: Lunes a Jueves
+- Turno: 6:00 - 14:00 (Turno 1), 14:00 - 22:00 (Turno 2)
+- Supervisor: Gustavo Miranda"
+
+contenido_reparaciones="Agenda para el equipo de Reparaciones:
+- Las solicitudes deben programarse con 2 días de anticipación.
+- Horario de atención: Lunes a Viernes de 9:00 a 16:00
+- Técnico asignado: Jairo Canqui"
+
+contenido_costos="Cronograma del departamento de Costos:
+- Los reportes se generan al final de cada mes.
+- Revisión: Último viernes del mes, 10:00 hrs.
+- Contadora: Cristian Sirpa"
+
+# 4. Crear los archivos 'fechas'
+
+echo "$contenido_mantenimiento" > Mantenimiento/fechas.txt
+echo "$contenido_produccion" > "Línea de producción"/fechas.txt
+echo "$contenido_reparaciones" > Reparaciones/fechas.txt
+echo "$contenido_costos" > Costos/fechas.txt
+# regreso a la raiz
+cd ..
+
+# 5. Mensaje de confirmación
+echo "¡Estructura creada exitosamente"
+echo ""
+echo "Contenido:"
+tree
