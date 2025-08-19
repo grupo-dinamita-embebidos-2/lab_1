@@ -1,0 +1,27 @@
+n = int(input("¿Cuántos números quieres añadir? "))
+numeros = []
+for i in range(n):
+    num = input("Ingresa un número: ")
+    numeros.append(num)
+print("Los números que añadiste son:", numeros)
+
+numero = input("Ingresa un número para invertir: ")
+invertido = numero[::-1]
+print("Número invertido:", invertido)
+
+nombre = input("¿Cuál es tu nombre? ")
+edad = input("¿Cuántos años tienes? ")
+profesion = input("¿Cuál es tu profesión? ")
+print("Hola", nombre + ", tienes", edad, "años y eres", profesion)
+
+x = int(input("¿Cuántos números vas a ingresar? "))
+numeros_usuario = []
+for i in range(x):
+    n = input("Ingresa un número: ")
+    numeros_usuario.append(n)
+
+unicos = []
+for num in numeros_usuario:
+    if num not in unicos:
+        unicos.append(num)
+print("Números únicos:", unicos)
